@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -20,4 +20,102 @@ h1,
 h2,
 h3 {
   font-weight: 600;
+} */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+.sidebar {
+  background: #ff6867;
+}
+
+.container ul li {
+  list-style: none;
+}
+
+.container ul li:hover {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+.task-item {
+  list-style: none;
+  text-align: center;
+}
+
+/* Desktop */
+.delete-text {
+  display: none;
+}
+
+.delete-icon {
+  display: inline;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .delete-text {
+    display: inline;
+  }
+
+  .delete-icon {
+    display: none;
+  }
+}
+
+/* mobile styles */
+@media (max-width: 768px) {
+  .task-item {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+
+  .task-item button {
+    width: 100%;
+  }
+}
+
+/* mobile responsive layout */
+@media (max-width: 768px) {
+  main > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sidebar {
+    border-radius: 0 !important;
+    margin-bottom: 1rem;
+  }
+
+  .main-content {
+    border-radius: 0 !important;
+  }
+
+  .mb-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .userInput,
+  .btn {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
 }
