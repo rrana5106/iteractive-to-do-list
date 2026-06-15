@@ -6,6 +6,9 @@ const inputEl = document.querySelector(".userInput");
 // listening for button clicks
 btnEl.addEventListener("click", addTask);
 
+// storing all tasks in an array
+const tasks = [];
+
 // function to add a new task
 function addTask() {
   // getting the value from the input field
@@ -16,6 +19,14 @@ function addTask() {
     alert("Please enter a task");
     return;
   }
+
+  // checking if the task already exists in the array
+  if (tasks.includes(task)) {
+    alert("Task is already exists");
+    return;
+  }
+  // adding the task to the tasks array
+  tasks.push(task);
 
   // creating and displaying the task
   createTask(task);
@@ -47,26 +58,25 @@ function createTask(task) {
   );
 
   // setting up the delete button
-  //   deleteBtn.textContent = "Delete";
-  // deleteBtn.innerHTML = '<i class="bi bi-trash"></i>';
- /*  deleteBtn.innerHTML = `
-  <span class="delete-text">Delete</span>
-  <i class="bi bi-trash delete-icon"></i>
-`;
-  deleteBtn.classList.add("btn", "btn-danger", "btn-sm"); */
   const deleteText = document.createElement("span");
   deleteText.textContent = "Delete";
   deleteText.className = "delete-text";
-  deleteBtn.classList.add("btn", "btn-danger", "btn-sm"); 
+  deleteBtn.classList.add("btn", "btn-danger", "btn-sm");
 
-const deleteIcon = document.createElement("i");
-deleteIcon.className = "bi bi-trash delete-icon";
+  const deleteIcon = document.createElement("i");
+  deleteIcon.className = "bi bi-trash delete-icon";
 
-deleteBtn.append(deleteText, deleteIcon);
+  deleteBtn.append(deleteText, deleteIcon);
 
   // removing the task when delete button is clicked
   deleteBtn.addEventListener("click", function () {
     liEl.remove();
+
+    // finding the position of the task in the array
+    const taskIndex = tasks.indexOf(task);
+
+    // removing the task from the array
+    tasks.splice(taskIndex, 1);
   });
 
   // adding the delete button to the task
