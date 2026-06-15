@@ -29,8 +29,8 @@
     <title>Todo List App</title>
   </head>
   <body>
-    <header class="bg-body-tertiary py-3 mb-3">
-      <h1 class="text-center">To Do List App</h1>
+    <header class="py-3 mb-3">
+      <h1 class="text-center title">To Do List App</h1>
     </header>
     <main>
       <div
@@ -43,22 +43,24 @@
             <div class="list-group">
               <ul>
                 <li class="mb-2">
-                  <i class="bi bi-speedometer"></i> Dashboard
+                  <i class="bi bi-speedometer"></i
+                  ><span class="sidebar-text"> Dashboard </span>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-exclamation-lg"></i>Vital Task
+                  <i class="bi bi-exclamation-lg"></i
+                  ><span class="sidebar-text"> Vital Task </span>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-list-task"></i>
-                  My Task
+                  <i class="bi bi-list-task"></i
+                  ><span class="sidebar-text"> My Task </span>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-gear"></i>
-                  Setting
+                  <i class="bi bi-gear"></i
+                  ><span class="sidebar-text"> Setting </span>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-question-lg"></i>
-                  Help
+                  <i class="bi bi-question-lg"></i
+                  ><span class="sidebar-text"> Help </span>
                 </li>
               </ul>
             </div>
@@ -78,7 +80,10 @@
                   class="form-control userInput"
                   id="inputText"
                 />
-                <button type="button" class="btn btn-primary mt-2">Add</button>
+
+                <div class="d-flex justify-content-center mt-2">
+                  <button type="button" class="btn btn-primary">Add</button>
+                </div>
               </div>
               <div class="d-grid gap-2 col-2 mx-auto"></div>
               <div class="container-fluid mt-4">
