@@ -1,5 +1,5 @@
 // getting the elements from the page
-const cardDiv = document.querySelector(".test");
+const taskList = document.querySelector(".task-list");
 const btnEl = document.querySelector(".btn");
 const inputEl = document.querySelector(".userInput");
 
@@ -8,6 +8,7 @@ btnEl.addEventListener("click", addTask);
 
 // function to add a new task
 function addTask() {
+  // getting the value from the input field
   const task = inputEl.value.trim();
 
   // checking if the input is empty
@@ -16,31 +17,52 @@ function addTask() {
     return;
   }
 
+  // creating and displaying the task
   createTask(task);
 
-  // clearing the input field
+  // clearing the input field after adding a task
   inputEl.value = "";
 }
 
 // function to create and display a task
 function createTask(task) {
-  const divEl = document.createElement("div");
-  const ulEl = document.createElement("ul");
+  // creating new elements
   const liEl = document.createElement("li");
   const deleteBtn = document.createElement("button");
 
+  // adding task text
   liEl.textContent = task;
 
-  deleteBtn.textContent = "Delete";
-  deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "ms-3");
+  // adding bootstrap classes to the list item
 
-  // removing the task when delete is clicked
+  liEl.classList.add(
+    "task-item",
+    "d-flex",
+    "justify-content-between",
+    "align-items-center",
+    "mb-2",
+    "border",
+    "p-2",
+    "rounded",
+  );
+
+  // setting up the delete button
+  //   deleteBtn.textContent = "Delete";
+  // deleteBtn.innerHTML = '<i class="bi bi-trash"></i>';
+  deleteBtn.innerHTML = `
+  <span class="delete-text">Delete</span>
+  <i class="bi bi-trash delete-icon"></i>
+`;
+  deleteBtn.classList.add("btn", "btn-danger", "btn-sm");
+
+  // removing the task when delete button is clicked
   deleteBtn.addEventListener("click", function () {
-    divEl.remove();
+    liEl.remove();
   });
 
+  // adding the delete button to the task
   liEl.appendChild(deleteBtn);
-  ulEl.appendChild(liEl);
-  divEl.appendChild(ulEl);
-  cardDiv.appendChild(divEl);
+
+  // displaying the task on the page
+  taskList.appendChild(liEl);
 }
