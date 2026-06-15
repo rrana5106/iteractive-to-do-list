@@ -49,11 +49,20 @@ function createTask(task) {
   // setting up the delete button
   //   deleteBtn.textContent = "Delete";
   // deleteBtn.innerHTML = '<i class="bi bi-trash"></i>';
-  deleteBtn.innerHTML = `
+ /*  deleteBtn.innerHTML = `
   <span class="delete-text">Delete</span>
   <i class="bi bi-trash delete-icon"></i>
 `;
-  deleteBtn.classList.add("btn", "btn-danger", "btn-sm");
+  deleteBtn.classList.add("btn", "btn-danger", "btn-sm"); */
+  const deleteText = document.createElement("span");
+  deleteText.textContent = "Delete";
+  deleteText.className = "delete-text";
+  deleteBtn.classList.add("btn", "btn-danger", "btn-sm"); 
+
+const deleteIcon = document.createElement("i");
+deleteIcon.className = "bi bi-trash delete-icon";
+
+deleteBtn.append(deleteText, deleteIcon);
 
   // removing the task when delete button is clicked
   deleteBtn.addEventListener("click", function () {
