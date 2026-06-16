@@ -69,12 +69,14 @@ h3 {
   text-align: center;
 }
 
-/* hide delete text on desktop */
+/* hide edit and delete text on desktop */
+.edit-text,
 .delete-text {
   display: none;
 }
 
-/* show delete icon on desktop */
+/* show edit and delete icon on desktop */
+.edit-icon,
 .delete-icon {
   display: inline;
 }
@@ -149,12 +151,14 @@ h3 {
     width: 100%;
   }
 
-  /* show delete text on mobile */
+  /* show edit and delete text on mobile */
+  .edit-text,
   .delete-text {
     display: inline;
   }
 
-  /* hide delete icon on mobile */
+  /* hide edit and delete icon on mobile */
+  .edit-icon,
   .delete-icon {
     display: none;
   }
